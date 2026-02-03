@@ -5,19 +5,32 @@ A lightweight MCP server for date, time, and day of week.
 ## Installation
 
 ```bash
-uv sync
+pip install mcp-datetimeday
+```
+
+Or with uv:
+```bash
+uv pip install mcp-datetimeday
 ```
 
 ## Usage
 
-Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
+### Claude Code
+
+```bash
+claude mcp add --scope user mcp-datetimeday -- uvx mcp-datetimeday
+```
+
+### Claude Desktop
+
+Add to your config (`~/Library/Application Support/Claude/claude_desktop_config.json`):
 
 ```json
 {
   "mcpServers": {
     "datetimeday": {
-      "command": "uv",
-      "args": ["run", "--directory", "/Users/robsherman/Servers/mcp-datetimeday", "mcp-datetimeday"]
+      "command": "uvx",
+      "args": ["mcp-datetimeday"]
     }
   }
 }
@@ -102,6 +115,8 @@ Add to your Claude Desktop config (`~/Library/Application Support/Claude/claude_
 ## Development
 
 ```bash
+git clone https://github.com/cfdude/mcp-datetimeday.git
+cd mcp-datetimeday
 uv sync
 uv run mcp-datetimeday
 ```
