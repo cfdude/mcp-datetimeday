@@ -4,9 +4,28 @@ version = "0.1.0"
 description = "A lightweight MCP server for date, time, and day of week"
 readme = "README.md"
 requires-python = ">=3.10"
+license = "MIT"
+authors = [
+    { name = "Rob Sherman", email = "rsherman@velocityinteractive.com" }
+]
+keywords = ["mcp", "datetime", "time", "date", "timezone", "fastmcp", "claude"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
 dependencies = [
     "fastmcp>=2.0.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/cfdude/mcp-datetimeday"
+Repository = "https://github.com/cfdude/mcp-datetimeday"
+Issues = "https://github.com/cfdude/mcp-datetimeday/issues"
 
 [project.scripts]
 mcp-datetimeday = "mcp_datetimeday.server:main"
