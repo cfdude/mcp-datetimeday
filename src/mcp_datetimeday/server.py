@@ -1,8 +1,9 @@
 """Lightweight MCP server for date, time, and day of week."""
 
-from datetime import datetime, timezone
 from calendar import monthrange
+from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
+
 from fastmcp import FastMCP
 
 mcp = FastMCP("mcp-datetimeday")
