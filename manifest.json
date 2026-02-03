@@ -1,0 +1,46 @@
+{
+  "manifest_version": "0.2",
+  "name": "mcp-datetimeday",
+  "version": "0.1.0",
+  "description": "A lightweight MCP server for date, time, and day of week",
+  "author": {
+    "name": "Rob Sherman",
+    "email": "rsherman@velocityinteractive.com"
+  },
+  "server": {
+    "type": "python",
+    "entry_point": "src/mcp_datetimeday/server.py",
+    "mcp_config": {
+      "command": "uvx",
+      "args": ["mcp-datetimeday"],
+      "env": {}
+    }
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cfdude/mcp-datetimeday"
+  },
+  "tools": [
+    {
+      "name": "get_datetime",
+      "description": "Get current date and time with day of week. Supports timezone and format args."
+    },
+    {
+      "name": "relative_time",
+      "description": "Get relative time description between two dates."
+    },
+    {
+      "name": "days_in_month",
+      "description": "Get the number of days in a month."
+    },
+    {
+      "name": "convert_time",
+      "description": "Convert time between timezones."
+    },
+    {
+      "name": "get_week_year",
+      "description": "Get week number and ISO week of the year."
+    }
+  ]
+}
