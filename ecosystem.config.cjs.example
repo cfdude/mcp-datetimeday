@@ -1,0 +1,17 @@
+module.exports = {
+  apps: [
+    {
+      name: "mcp-datetimeday",
+      interpreter: "/path/to/mcp-datetimeday/.venv/bin/python",
+      script: "src/mcp_datetimeday/server.py",
+      args: "--transport streamable-http --port 8105",
+      cwd: "/path/to/mcp-datetimeday",
+      autorestart: true,
+      max_restarts: 10,
+      watch: false,
+      env: {
+        PYTHONUNBUFFERED: "1",
+      },
+    },
+  ],
+};

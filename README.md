@@ -60,9 +60,11 @@ Add to your config (`~/Library/Application Support/Claude/claude_desktop_config.
 
 ### PM2 (persistent HTTP server)
 
-An `ecosystem.config.cjs` is included for PM2:
+An `ecosystem.config.cjs.example` is included. Copy it and update the paths for your machine:
 
 ```bash
+cp ecosystem.config.cjs.example ecosystem.config.cjs
+# Edit interpreter and cwd paths, then:
 pm2 start ecosystem.config.cjs
 pm2 save
 ```
