@@ -1,5 +1,6 @@
 """Lightweight MCP server for date, time, and day of week."""
 
+import argparse
 from calendar import monthrange
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
@@ -279,7 +280,30 @@ def get_week_year(date_str: str | None = None) -> dict:
 
 def main():
     """Run the MCP server."""
-    mcp.run()
+    parser = argparse.ArgumentParser(description="mcp-datetimeday MCP server")
+    parser.add_argument(
+        "--transport",
+        choices=["stdio", "streamable-http"],
+        default="stdio",
+        help="Transport protocol (default: stdio)",
+    )
+    parser.add_argument(
+        "--port",
+        type=int,
+        default=8105,
+        help="Port for HTTP transport (default: 8105)",
+    )
+    parser.add_argument(
+        "--host",
+        default="127.0.0.1",
+        help="Host for HTTP transport (default: 127.0.0.1)",
+    )
+    args = parser.parse_args()
+
+    if args.transport == "streamable-http":
+        mcp.run(transport="streamable-http", host=args.host, port=args.port)
+    else:
+        mcp.run()
 
 
 if __name__ == "__main__":

@@ -15,7 +15,21 @@ uv pip install mcp-datetimeday
 
 ## Usage
 
-### Claude Code
+The server supports two transport modes: **stdio** (default) for Claude Desktop, and **streamable-http** for Claude Code or any HTTP-based MCP client.
+
+### Claude Code (HTTP — recommended)
+
+Run the server as a persistent HTTP process (e.g., via PM2), then register it:
+
+```bash
+# Start the server
+mcp-datetimeday --transport streamable-http --port 8105
+
+# Register in Claude Code (user scope)
+claude mcp add --transport http --scope user mcp-datetimeday http://127.0.0.1:8105/mcp
+```
+
+### Claude Code (stdio)
 
 ```bash
 claude mcp add --scope user mcp-datetimeday -- uvx mcp-datetimeday
@@ -34,6 +48,23 @@ Add to your config (`~/Library/Application Support/Claude/claude_desktop_config.
     }
   }
 }
+```
+
+### CLI Options
+
+```
+--transport {stdio,streamable-http}   Transport protocol (default: stdio)
+--port PORT                           Port for HTTP transport (default: 8105)
+--host HOST                           Host for HTTP transport (default: 127.0.0.1)
+```
+
+### PM2 (persistent HTTP server)
+
+An `ecosystem.config.cjs` is included for PM2:
+
+```bash
+pm2 start ecosystem.config.cjs
+pm2 save
 ```
 
 ## Available Tools

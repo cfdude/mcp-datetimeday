@@ -1,7 +1,7 @@
 {
   "manifest_version": "0.2",
   "name": "mcp-datetimeday",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A lightweight MCP server for date, time, and day of week",
   "author": {
     "name": "Rob Sherman",
